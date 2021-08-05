@@ -23,17 +23,29 @@ set guifont=ProggyCleanTT\ 12
 call plug#begin('~/.vim/plugged')
 "general purpose plugins:
 "Plug 'vim-scripts/AutoComplPop'
-"color schemes
+Plug 'jiangmiao/auto-pairs'
+Plug 'preservim/nerdcommenter'
+"color schemes DARK
 Plug 'morhetz/gruvbox'
 Plug 'rktjmp/lush.nvim'
 Plug 'nanotech/jellybeans.vim' "call jellybeans
 Plug 'bluz71/vim-moonfly-colors' "call moonfly
 Plug 'fxn/vim-monochrome' "call monochrome
-Plug 'nn1ks/vim-darkspace' "call darkspace
+Plug 'nn1ks/vim-darkspace' "call darkspacei
+
 "python plugins
 Plug 'hdima/python-syntax'
 
+"navigation
+Plug 'preservim/nerdtree'
 call plug#end()
-set background=dark
-set termguicolors
-colorscheme darkspace
+colorscheme jellybeans
+
+"nerd tree 
+let NERDTreeQuitOnOpen=1
+let g:NERDTreeMinimalUI=1
+nmap <F2> :NERDTreeToggle<CR>
+
+"Nerd commenter
+nmap <C-_> <Plug>NERDCommenterToggle "comment whole line ctrl+_
+vmap <C-_> <Plug>NERDCommenterToggle<CR>gv "to comment multiple lines in visual mode
