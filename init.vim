@@ -14,10 +14,10 @@ set ignorecase "ignora case sentitive en busquedas
 set clipboard=unnamedplus
 set encoding=utf8
 set guifont=ProggyCleanTT\ 12
-"set cursorline
+set cursorline
 "set termguicolors
 "set colorcolumn=120
-
+let mapleader = ' '
 "inicio de configuracion de plugins 
 "need to install vim-plug manager 
 call plug#begin('~/.vim/plugged')
@@ -25,6 +25,9 @@ call plug#begin('~/.vim/plugged')
 "Plug 'vim-scripts/AutoComplPop'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdcommenter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'sirver/ultisnips'
 "color schemes DARK
 Plug 'morhetz/gruvbox'
 Plug 'rktjmp/lush.nvim'
@@ -49,3 +52,16 @@ nmap <F2> :NERDTreeToggle<CR>
 "Nerd commenter
 nmap <C-_> <Plug>NERDCommenterToggle "comment whole line ctrl+_
 vmap <C-_> <Plug>NERDCommenterToggle<CR>gv "to comment multiple lines in visual mode
+
+"tabs (airline)
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#fnamemode=':t'
+nmap <leader>1 :bp<CR>
+nmap <leader>2 :bn<CR>
+nmap <C-w> :bd<CR>
+
+"util snippets configuration
+let g:UtilSnipsSnippetDirectories=['../utilsnippets']
+let g:UtilSnipsExpandTrigger='<tab>'
+let g:UtilSnipsJumpForwardTrigger='<tab>'
+let g:UtilSnipsJumpBackwardTrigger='<s-tab>'
