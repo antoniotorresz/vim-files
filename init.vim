@@ -2,7 +2,7 @@ syntax on
 set number
 set mouse=a "hace que podamos interactuar con el mouse y vim
 set noerrorbells "quitar el sonido de error
-set sw=2 "indentaciones de 2 espacios
+set sw=4 "indentaciones de 2 espacios
 set expandtab
 set smartindent "para indentacion inteligente con python
 set numberwidth=1
@@ -21,6 +21,10 @@ let mapleader = ' '
 "inicio de configuracion de plugins 
 "need to install vim-plug manager 
 call plug#begin('~/.vim/plugged')
+"language server
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } "path: $HOME/.vim/plugged/YouCompleteMe
+"install new compiler: ./install.py <CPMLETER_NAME> ex. ./install
+"--clang-completer
 "general purpose plugins:
 "Plug 'vim-scripts/AutoComplPop'
 Plug 'jiangmiao/auto-pairs'
@@ -38,13 +42,11 @@ Plug 'nn1ks/vim-darkspace' "call darkspacei
 
 "python plugins
 Plug 'hdima/python-syntax'
-
 "navigation
 Plug 'preservim/nerdtree'
 call plug#end()
 colorscheme jellybeans
 
-"nerd tree 
 let NERDTreeQuitOnOpen=1
 let g:NERDTreeMinimalUI=1
 nmap <F2> :NERDTreeToggle<CR>
@@ -61,7 +63,11 @@ nmap <leader>2 :bn<CR>
 nmap <C-w> :bd<CR>
 
 "util snippets configuration
-let g:UtilSnipsSnippetDirectories=['../utilsnippets']
+let g:UtilSnipsSnippetDirectories=['/utilsnippets']
 let g:UtilSnipsExpandTrigger='<tab>'
 let g:UtilSnipsJumpForwardTrigger='<tab>'
 let g:UtilSnipsJumpBackwardTrigger='<s-tab>'
+
+"-------PROGRAMMING LANGUAGES CONFIGURATION: 
+"C++ need to install ccls language server dependig linux distro
+"
