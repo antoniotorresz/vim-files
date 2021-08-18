@@ -13,13 +13,15 @@ set incsearch
 set ignorecase "ignora case sentitive en busquedas
 set clipboard=unnamedplus
 set encoding=utf8
-set guifont=ProggyCleanTT\ 12
+set guifont=Fixedsys:h11
 set cursorline
-"set termguicolors
-"set colorcolumn=120
+"enable folding based in indents
+set foldmethod=indent
+set foldlevel=99
 let mapleader = ' '
 "need to install vim-plug manager 
 call plug#begin('~/.vim/plugged')
+    
     "general purpose plugins:
     Plug 'jiangmiao/auto-pairs'
     Plug 'preservim/nerdcommenter'
@@ -29,8 +31,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'ap/vim-css-color'
     Plug 'airblade/vim-gitgutter'
     Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'majutsushi/tagbar'
     Plug 'voldikss/vim-floaterm'
+    Plug 'preservim/nerdtree'
+    Plug 'tmhedberg/SimpylFold'   
     "color schemes DARK
     Plug 'morhetz/gruvbox'
     Plug 'rktjmp/lush.nvim'
@@ -41,9 +44,8 @@ call plug#begin('~/.vim/plugged')
 
     "python plugins
     Plug 'hdima/python-syntax'
-    "navigation
-    Plug 'preservim/nerdtree'
-    "plugins for lsp
+
+        "plugins for lsp
 call plug#end()
 colorscheme jellybeans
 
@@ -70,3 +72,6 @@ nmap <C-w> :bd<CR>
 "float term
 let g:floaterm_keymap_new = '<F7>'
 let g:floaterm_keymap_toggle = '<F12>'
+
+"folding configurations
+noremap <leader><down> za
