@@ -26,7 +26,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'luochen1990/rainbow'
-
+    Plug 'ap/vim-css-color'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'majutsushi/tagbar'
+    Plug 'voldikss/vim-floaterm'
     "color schemes DARK
     Plug 'morhetz/gruvbox'
     Plug 'rktjmp/lush.nvim'
@@ -62,3 +66,7 @@ let g:airline#extensions#tabline#fnamemode=':t'
 nmap <leader><Left> :bp<CR>
 nmap <leader><Right> :bn<CR>
 nmap <C-w> :bd<CR>
+
+"float term
+let g:floaterm_keymap_new = '<F7>'
+let g:floaterm_keymap_toggle = '<F12>'
