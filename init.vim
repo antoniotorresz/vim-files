@@ -18,34 +18,35 @@ set cursorline
 "set termguicolors
 "set colorcolumn=120
 let mapleader = ' '
-"inicio de configuracion de plugins 
 "need to install vim-plug manager 
 call plug#begin('~/.vim/plugged')
-"language server
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } "path: $HOME/.vim/plugged/YouCompleteMe
-"install new compiler: ./install.py <CPMLETER_NAME> ex. ./install
-"--clang-completer
-"general purpose plugins:
-"Plug 'vim-scripts/AutoComplPop'
-Plug 'jiangmiao/auto-pairs'
-Plug 'preservim/nerdcommenter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'sirver/ultisnips'
-"color schemes DARK
-Plug 'morhetz/gruvbox'
-Plug 'rktjmp/lush.nvim'
-Plug 'nanotech/jellybeans.vim' "call jellybeans
-Plug 'bluz71/vim-moonfly-colors' "call moonfly
-Plug 'fxn/vim-monochrome' "call monochrome
-Plug 'nn1ks/vim-darkspace' "call darkspacei
 
-"python plugins
-Plug 'hdima/python-syntax'
-"navigation
-Plug 'preservim/nerdtree'
+    "general purpose plugins:
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'preservim/nerdcommenter'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+
+    "color schemes DARK
+    Plug 'morhetz/gruvbox'
+    Plug 'rktjmp/lush.nvim'
+    Plug 'nanotech/jellybeans.vim' "call jellybeans
+    Plug 'bluz71/vim-moonfly-colors' "call moonfly
+    Plug 'fxn/vim-monochrome' "call monochrome
+    Plug 'nn1ks/vim-darkspace' "call darkspacei
+
+    "python plugins
+    Plug 'hdima/python-syntax'
+    "navigation
+    Plug 'preservim/nerdtree'
+    "plugins for lsp
 call plug#end()
 colorscheme jellybeans
+
+"general purpose mapping keys
+"visual mode
+vnoremap < <gv
+vnoremap > >gv
 
 let NERDTreeQuitOnOpen=1
 let g:NERDTreeMinimalUI=1
@@ -61,13 +62,3 @@ let g:airline#extensions#tabline#fnamemode=':t'
 nmap <leader>1 :bp<CR>
 nmap <leader>2 :bn<CR>
 nmap <C-w> :bd<CR>
-
-"util snippets configuration
-let g:UtilSnipsSnippetDirectories=['/utilsnippets']
-let g:UtilSnipsExpandTrigger='<tab>'
-let g:UtilSnipsJumpForwardTrigger='<tab>'
-let g:UtilSnipsJumpBackwardTrigger='<s-tab>'
-
-"-------PROGRAMMING LANGUAGES CONFIGURATION: 
-"C++ need to install ccls language server dependig linux distro
-"
