@@ -13,8 +13,6 @@ set incsearch
 set ignorecase "ignora case sentitive en busquedas
 set clipboard=unnamedplus
 set encoding=utf8
-set guifont=Fixedsys:h11
-set cursorline
 "enable folding based in indents
 set foldmethod=indent
 set foldlevel=99
