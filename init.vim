@@ -2,7 +2,7 @@ syntax on
 set number
 set mouse=a "hace que podamos interactuar con el mouse y vim
 set noerrorbells "quitar el sonido de error
-set sw=4 "indentaciones de 2 espacios
+set sw=4 "indentaciones de 4 espacios
 set expandtab
 set smartindent "para indentacion inteligente con python
 set numberwidth=1
@@ -20,12 +20,12 @@ set cursorline
 let mapleader = ' '
 "need to install vim-plug manager 
 call plug#begin('~/.vim/plugged')
-
     "general purpose plugins:
     Plug 'jiangmiao/auto-pairs'
     Plug 'preservim/nerdcommenter'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'luochen1990/rainbow'
 
     "color schemes DARK
     Plug 'morhetz/gruvbox'
@@ -45,8 +45,8 @@ colorscheme jellybeans
 
 "general purpose mapping keys
 "visual mode
-vnoremap < <gv
-vnoremap > >gv
+vnoremap < <gv "make indentation to the left
+vnoremap > >gv "make indentantion to the right
 
 let NERDTreeQuitOnOpen=1
 let g:NERDTreeMinimalUI=1
@@ -59,6 +59,6 @@ vmap <C-_> <Plug>NERDCommenterToggle<CR>gv "to comment multiple lines in visual 
 "tabs (airline)
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#fnamemode=':t'
-nmap <leader>1 :bp<CR>
-nmap <leader>2 :bn<CR>
+nmap <leader><Left> :bp<CR>
+nmap <leader><Right> :bn<CR>
 nmap <C-w> :bd<CR>
