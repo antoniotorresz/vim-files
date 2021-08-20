@@ -1,16 +1,16 @@
 syntax on
 set number
-set mouse=a "hace que podamos interactuar con el mouse y vim
-set noerrorbells "quitar el sonido de error
-set sw=4 "indentaciones de 4 espacios
+set mouse=a "interaction with mouse and terminal components 
+set noerrorbells "remove error sound that are anoying
+set sw=4 "4 spaces indentations for standard python and other languages
 set expandtab
-set smartindent "para indentacion inteligente con python
+set smartindent "intelligent python indentation to avoid errors
 set numberwidth=1
 set nowrap
 set noswapfile
 set nobackup
 set incsearch
-set ignorecase "ignora case sentitive en busquedas
+set ignorecase "ignore case sentitive searches
 set clipboard=unnamedplus
 set encoding=utf8
 "enable folding based in indents
@@ -43,7 +43,11 @@ call plug#begin('~/.vim/plugged')
     "python plugins
     Plug 'hdima/python-syntax'
 
-        "plugins for lsp
+    if has('nvim')
+        "built in lsp for nvim
+        Plug 'neovim/nvim-lspconfig'
+        Plug 'hrsh7th/nvim-compe'
+    endif
 call plug#end()
 colorscheme jellybeans
 
@@ -51,6 +55,12 @@ colorscheme jellybeans
 "visual mode
 vnoremap < <gv "make indentation to the left
 vnoremap > >gv "make indentantion to the right
+
+"general purpose mapping for insert mode: 
+inoremap <C-s> <Esc>:update<cr>gi "control s saving behaivior
+
+"mapping keys for normal mode: 
+nnoremap <C-s> :update<cr>
 
 let NERDTreeQuitOnOpen=1
 let g:NERDTreeMinimalUI=1
@@ -73,3 +83,12 @@ let g:floaterm_keymap_toggle = '<F12>'
 
 "folding configurations
 noremap <leader><down> za
+
+
+"operative system validation
+if has('win32') "windows
+    set shell=powershell.exe
+    set shellcmdflag=/c\ powershell.exe\ -NoLogo\ -NoProfile\ -NonInteractive\ -ExecutionPolicy\ RemoteSigned
+    set shellpipe=|
+    set shellredir=>    
+endif
