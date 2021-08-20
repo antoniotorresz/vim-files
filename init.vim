@@ -57,11 +57,11 @@ vnoremap < <gv "make indentation to the left
 vnoremap > >gv "make indentantion to the right
 
 "general purpose mapping for insert mode: 
-inoremap <C-s> <Esc>:update<cr>gi "control s saving behaivior
+inoremap <C-s> <Esc>:update<cr>gi
 
 "mapping keys for normal mode: 
 nnoremap <C-s> :update<cr>
-
+nnoremap <F5> :so %<cr>
 let NERDTreeQuitOnOpen=1
 let g:NERDTreeMinimalUI=1
 nmap <F2> :NERDTreeToggle<CR>
@@ -91,4 +91,11 @@ if has('win32') "windows
     set shellcmdflag=/c\ powershell.exe\ -NoLogo\ -NoProfile\ -NonInteractive\ -ExecutionPolicy\ RemoteSigned
     set shellpipe=|
     set shellredir=>    
+endif
+
+"LSP configurations for unix / msdos
+if has('win32')
+    source $HOME\AppData\Local\nvim\lspconfig.vim
+    luafile $HOME\AppData\Local\nvim\languageservers\python-lsp.lua
+    luafile $HOME\AppData\Local\nvim\compeconfig.lua
 endif
